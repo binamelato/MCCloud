@@ -1,0 +1,758 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
+--
+-- Хост: localhost
+-- Время создания: Авг 23 2020 г., 16:16
+-- Версия сервера: 5.7.18
+-- Версия PHP: 7.1.5
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- База данных: `mm_ms`
+--
+CREATE DATABASE IF NOT EXISTS `mm_ms` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `mm_ms`;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `news`
+--
+
+CREATE TABLE `news` (
+  `id` int(255) NOT NULL,
+  `name_n` varchar(255) NOT NULL,
+  `mtex_n` varchar(255) NOT NULL,
+  `text_n` varchar(500) NOT NULL,
+  `type_n` varchar(255) NOT NULL,
+  `autor_n` varchar(255) NOT NULL,
+  `data` text NOT NULL,
+  `pic_n` text NOT NULL,
+  `url_n` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `news`
+--
+
+INSERT INTO `news` (`id`, `name_n`, `mtex_n`, `text_n`, `type_n`, `autor_n`, `data`, `pic_n`, `url_n`) VALUES
+(1, 'bug reports. April 19, 2017', '...', 'Today, during the test of the main resource functions, the following errors were fixed:\r\n* Incorrect display of user avatar\r\n* Incorrect links to tracks from your profile\r\n* Incorrect display of tracks on the main page\r\n* Incorrect display of subscribers, subscriptions and likes in user profile\r\n* Error when user tries to subscribe or unsubscribe from another user\r\n\r\nMusiccloud dev.', '1', 'Warframecloud.com', 'April 19, 2017', '1', '1'),
+(2, 'Changes. May 25, 2017', '...', 'Changes:\r\n\r\n- Added function to send private messages\r\n- Added function to the report\r\n- Change in the display of information about the track. This information is now displayed in the right pane.', '1', '', '25 May, 2017', '1', '3'),
+(3, 'Update 1.1', '...', 'Coming soon:\r\n\r\n- Changing the mandachord system\r\n- Function of profile preview when hovering over the user\'s nickname\r\n- Displaying recent user comments\r\n- The menu of private messages. At the moment, personal messages can be sent, but not read.\r\n- Add the ability to add tags for the tracks when uploading to the resource. \r\n- Search by tags. \r\n- Improving the search page\r\n\r\nand other\r\n', '1', '', '30 May, 2017', '1', '2'),
+(4, 'Changes. October 27, 2019', '...', 'Changes:\r\n\r\n- Restore old titul image, but in black version\r\n- Added function to display how many peoples listen track and liked it\r\n- Change default background for track.', '1', '', '27 October, 2019', '1', '3');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `o_album`
+--
+
+CREATE TABLE `o_album` (
+  `id` int(20) NOT NULL,
+  `a_name` varchar(40) NOT NULL,
+  `a_lab` varchar(25) NOT NULL,
+  `o_info` varchar(500) NOT NULL,
+  `o_date` date NOT NULL,
+  `o_genre` varchar(100) NOT NULL,
+  `o_p.label` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `o_album`
+--
+
+INSERT INTO `o_album` (`id`, `a_name`, `a_lab`, `o_info`, `o_date`, `o_genre`, `o_p.label`) VALUES
+(1, 'Sigma', 'Reol18294.jpeg', '', '2016-10-19', 'Electronic, Dance, Hip Hop', 'Toy\'s Factory'),
+(2, 'BabyMetal', 'babymetal10227.jpeg', '', '2014-02-26', 'heavy metal, power metal', 'Toy\'s Factory'),
+(3, 'Greatest Hits 2011-2017 Alter Ego', 'Egoist15300.jpeg', '', '2017-12-27', 'J-Pop', 'Sacra Music'),
+(4, 'Fallen', 'Egoist15300.jpeg', '', '2017-12-27', 'J-Pop', 'Sacra Music'),
+(5, 'Personal', 'babalon_21.jpeg', '', '2019-12-27', 'classical', '');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `o_board`
+--
+
+CREATE TABLE `o_board` (
+  `id` int(50) NOT NULL,
+  `master` varchar(25) NOT NULL,
+  `master_u` varchar(25) NOT NULL,
+  `author` varchar(25) NOT NULL,
+  `mess` text NOT NULL,
+  `date` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `o_board`
+--
+
+INSERT INTO `o_board` (`id`, `master`, `master_u`, `author`, `mess`, `date`) VALUES
+(2, 'b_1002', '', 'babalon', 'this is my first track', 'May 10, 2019, 7:58'),
+(3, 'b_1002', 'Babalon', 'babalon', 'thats all', 'October 26, 2019, 8:32');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `o_comments`
+--
+
+CREATE TABLE `o_comments` (
+  `id` int(255) NOT NULL,
+  `comm_id` varchar(25) NOT NULL,
+  `comm_author` varchar(25) NOT NULL,
+  `comm` text NOT NULL,
+  `comm_date` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `o_comments`
+--
+
+INSERT INTO `o_comments` (`id`, `comm_id`, `comm_author`, `comm`, `comm_date`) VALUES
+(1, '1', 'Egoist', 'thankx', 'May 11, 2018, 11:10'),
+(2, '2', 'babalon', 'wow!', 'October 26, 2019, 7:30');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `o_favorite`
+--
+
+CREATE TABLE `o_favorite` (
+  `id` int(255) NOT NULL,
+  `f_master` varchar(25) NOT NULL,
+  `f_author` varchar(25) NOT NULL,
+  `f_object` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `o_favorite`
+--
+
+INSERT INTO `o_favorite` (`id`, `f_master`, `f_author`, `f_object`) VALUES
+(1, 'Egoist', 'babalon', 'track_1771');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `o_followers`
+--
+
+CREATE TABLE `o_followers` (
+  `id` int(255) NOT NULL,
+  `f_master` varchar(25) NOT NULL,
+  `f_author` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `o_followers`
+--
+
+INSERT INTO `o_followers` (`id`, `f_master`, `f_author`) VALUES
+(1, 'Egoist', 'babalon'),
+(2, 'Reol', 'babalon'),
+(3, 'BabyMetal', 'babalon'),
+(7, 'babalon', 'Reol');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `o_like`
+--
+
+CREATE TABLE `o_like` (
+  `id` int(255) NOT NULL,
+  `l_master` varchar(25) NOT NULL,
+  `l_author` varchar(25) NOT NULL,
+  `l_object` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `o_like`
+--
+
+INSERT INTO `o_like` (`id`, `l_master`, `l_author`, `l_object`) VALUES
+(1, 'Egoist', 'babalon', 'track_1771'),
+(3, 'BabyMetal', 'babalon', 'track_19771263'),
+(4, 'Egoist', 'babalon', 'track_1772'),
+(5, 'Reol', 'babalon', 'track_2771');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `o_playlist`
+--
+
+CREATE TABLE `o_playlist` (
+  `pl_id` int(11) NOT NULL,
+  `pl_name` varchar(25) NOT NULL,
+  `pl_auth` varchar(25) NOT NULL,
+  `pl_lab` varchar(25) NOT NULL DEFAULT '0.jpg',
+  `pl_genre` varchar(25) NOT NULL,
+  `pl_dost` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Дамп данных таблицы `o_playlist`
+--
+
+INSERT INTO `o_playlist` (`pl_id`, `pl_name`, `pl_auth`, `pl_lab`, `pl_genre`, `pl_dost`) VALUES
+(1, 'bopa-popa', 'babalon', 'default.jpg', 'classical', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `o_pltrack`
+--
+
+CREATE TABLE `o_pltrack` (
+  `id` int(11) NOT NULL,
+  `id_pllist` int(11) NOT NULL,
+  `id_pltrack` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Дамп данных таблицы `o_pltrack`
+--
+
+INSERT INTO `o_pltrack` (`id`, `id_pllist`, `id_pltrack`) VALUES
+(1, 1, 6);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `o_titul`
+--
+
+CREATE TABLE `o_titul` (
+  `id` int(20) NOT NULL,
+  `t_nick` varchar(25) NOT NULL,
+  `s_titul` varchar(35) NOT NULL,
+  `type_dost` int(5) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `o_titul`
+--
+
+INSERT INTO `o_titul` (`id`, `t_nick`, `s_titul`, `type_dost`) VALUES
+(1, '', 'user', 1),
+(2, '', 'Singer', 1),
+(3, '', 'Group', 1),
+(4, '', 'Sys_Bot', 1),
+(5, '', 'Administrator', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `o_track`
+--
+
+CREATE TABLE `o_track` (
+  `id` int(20) NOT NULL,
+  `o_name` varchar(40) NOT NULL DEFAULT 'Track',
+  `o_lab` varchar(25) NOT NULL DEFAULT 'default.jpg',
+  `o_author` varchar(25) NOT NULL,
+  `o_group` varchar(25) NOT NULL,
+  `o_url` varchar(100) NOT NULL,
+  `o_info` varchar(500) NOT NULL,
+  `o_album` varchar(40) NOT NULL,
+  `o_tag` varchar(200) NOT NULL,
+  `o_date` date NOT NULL,
+  `o_genre` varchar(100) NOT NULL,
+  `o_p.label` varchar(25) NOT NULL,
+  `o_musican` varchar(50) NOT NULL,
+  `o_arrange` varchar(50) NOT NULL,
+  `o_lenth` varchar(10) NOT NULL DEFAULT '0:00',
+  `full_likes` int(5) NOT NULL DEFAULT '0',
+  `full_plays` int(25) NOT NULL DEFAULT '0',
+  `type_dost` int(5) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `o_track`
+--
+
+INSERT INTO `o_track` (`id`, `o_name`, `o_lab`, `o_author`, `o_group`, `o_url`, `o_info`, `o_album`, `o_tag`, `o_date`, `o_genre`, `o_p.label`, `o_musican`, `o_arrange`, `o_lenth`, `full_likes`, `full_plays`, `type_dost`) VALUES
+(1, 'VIP KID', 'Reol18294.jpeg', 'Reol', 'Reol', 'track_2771', '', 'Sigma', 'Reol,J-Pop,jpop,vip kid,sigma', '2016-10-19', 'Electronic, Dance, Hip Hop', 'Toy\'s Factory', 'Reol, GigaP', 'GigaP', '3:52', 1, 0, 1),
+(2, 'U.ki.U.ki★Midnight', 'babymetal10227.jpeg', 'BabyMetal', 'BabyMetal', 'track_19771263', '', 'BabyMetal', 'BabyMetal,J-Pop,jpop,U.ki.U.ki★Midnight, uki,midnight,power,metal', '2014-02-26', 'heavy metal, power metal', 'Toy\'s Factory', 'Team-K', 'Yuyoyuppe', '3:17', 1, 0, 1),
+(3, 'Reloaded', 'Egoist15300.jpeg', 'Egoist', 'Egoist', '131771', '', 'Greatest Hits 2011-2017 Alter Ego', 'Egoist,J-Pop,jpop,reloaded, alter,ego,', '2017-12-27', 'J-Pop', 'Sacra Music', 'Ryo', 'Ryo', '5:06', 1, 0, 1),
+(4, 'Fallen', 'Egoist15300.jpeg', 'Egoist', 'Egoist', '131772', '', 'Greatest Hits 2011-2017 Alter Ego', 'Egoist,J-Pop,jpop,reloaded, alter,ego,', '2017-12-27', 'J-Pop', 'Sacra Music', 'Ryo', 'Ryo', '4:28', 1, 0, 1),
+(5, 'The Everlasting Guilty Crown', 'Egoist24227.jpeg', 'Egoist', 'Egoist', '131002', '', 'Extra terrestrial Biological Entities', 'Egoist,J-Pop,jpop,reloaded, alter,ego,', '2012-02-23', 'J-Pop', 'Sacra Music', 'Ryo', 'Ryo', '5:27', 1, 0, 1),
+(6, 'Penitration', 'babalon21889.jpg', 'babalon', 'babalon', '11002', '', 'Personal', 'babalon,penitation,classical', '2019-02-23', 'Classical', '', '', '', '', 0, 2, 1),
+(8, 'Cult', 'babalon28069.jpeg', 'babalon', 'babalon', '112009', '...', 'Summer', '', '0000-00-00', 'Pop', '', '', '', '', 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `profile`
+--
+
+CREATE TABLE `profile` (
+  `id` int(255) NOT NULL,
+  `login` varchar(255) NOT NULL,
+  `rp_opis` varchar(455) NOT NULL DEFAULT '...',
+  `kkode` varchar(255) NOT NULL DEFAULT '1',
+  `afon` varchar(25) NOT NULL DEFAULT 'default.jpg',
+  `avatar` varchar(25) NOT NULL DEFAULT '0.jpg',
+  `rating` int(11) NOT NULL,
+  `contacts` varchar(50) NOT NULL,
+  `clr1` varchar(10) NOT NULL DEFAULT '86D0C9',
+  `clr2` varchar(10) NOT NULL DEFAULT 'FB7157'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `profile`
+--
+
+INSERT INTO `profile` (`id`, `login`, `rp_opis`, `kkode`, `afon`, `avatar`, `rating`, `contacts`, `clr1`, `clr2`) VALUES
+(1, 'babalon', '', '5', 'test28349.jpeg', 'test32176.jpeg', 1, '', '86D0C9', 'FB7157'),
+(11, 'BabyMetal', 'is a Japanese heavy metal idol band. The concept of the band is a fusion of the heavy metal and Japanese idol genres. The three young women and their band are managed by the Amuse talent agency. Their vocals are backed by heavy metal instrumentation played by the Kami Band.', '3', 'babymetal4035.jpeg', 'babymetal30690.jpeg', 0, 'http://babymetal.com', '710e04', '611309'),
+(12, 'Reol', 'is a Japanese musical unit that consisted of vocalist/lyricist Reol, music arranger GigaP, and movie director/producer Okiku. The members of REOL originally worked as solo artists, but they signed to Toy\'s Factory as a group in 2015, using Reol\'s name for the project.', '3', 'Reol28302.jpeg', 'Reol4162.jpeg', 0, 'https://www.reol.jp', 'eeede9', '23262d'),
+(13, 'Egoist', 'is a Japanese pop music duo consisting of songwriter Ryo of Supercell and vocalist Chelly. Originally formed to produce theme music for the 2011 anime television series Guilty Crown, the group continued creating other songs after the end of the series including themes for other anime television series including Psycho-Pass and Kabaneri of the Iron Fortress.', '3', 'Egoist9632.png', 'Egoist29907.jpeg', 0, 'http://www.egoist-inori.jp', 'eeede9', '23262d');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `prof_opt`
+--
+
+CREATE TABLE `prof_opt` (
+  `id` int(11) NOT NULL,
+  `f_idprofile` varchar(25) NOT NULL,
+  `f_up` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Дамп данных таблицы `prof_opt`
+--
+
+INSERT INTO `prof_opt` (`id`, `f_idprofile`, `f_up`) VALUES
+(2, 'babalon', '-214.6');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `prof_opt2`
+--
+
+CREATE TABLE `prof_opt2` (
+  `id` int(11) NOT NULL,
+  `a_idprofile` varchar(25) NOT NULL,
+  `a_up` varchar(5) NOT NULL DEFAULT '0',
+  `a_left` varchar(5) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Дамп данных таблицы `prof_opt2`
+--
+
+INSERT INTO `prof_opt2` (`id`, `a_idprofile`, `a_up`, `a_left`) VALUES
+(1, 'babalon', '0', '0');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `r_default`
+--
+
+CREATE TABLE `r_default` (
+  `id` int(11) NOT NULL,
+  `rp_name` varchar(25) NOT NULL,
+  `rp_opis` varchar(255) NOT NULL,
+  `rp_description` varchar(255) NOT NULL,
+  `rp_keywords` varchar(255) NOT NULL,
+  `rp_logo` varchar(50) NOT NULL,
+  `rp_logo_tit` varchar(50) NOT NULL,
+  `rp_logo_ico` varchar(50) NOT NULL,
+  `rp_inst` varchar(30) NOT NULL,
+  `rp_twitter` varchar(30) NOT NULL,
+  `rp_facebook` varchar(30) NOT NULL,
+  `rp_mail` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Дамп данных таблицы `r_default`
+--
+
+INSERT INTO `r_default` (`id`, `rp_name`, `rp_opis`, `rp_description`, `rp_keywords`, `rp_logo`, `rp_logo_tit`, `rp_logo_ico`, `rp_inst`, `rp_twitter`, `rp_facebook`, `rp_mail`) VALUES
+(1, 'MCcloud', 'music portal', '', '', '82.jpg', 'wcloud1.png', '', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(255) NOT NULL,
+  `login` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `npi` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`id`, `login`, `password`, `email`, `npi`) VALUES
+(1, 'babalon', '60bd6e821957c0e5a6ea5c838c055ab3', '', ''),
+(11, 'BabyMetal', '-', '', '94.19.87.36'),
+(12, 'Reol', '60bd6e821957c0e5a6ea5c838c055ab3', '', '94.19.87.36'),
+(13, 'Egoist', '60bd6e821957c0e5a6ea5c838c055ab3', '', '::1');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `zayavk`
+--
+
+CREATE TABLE `zayavk` (
+  `id` int(25) NOT NULL,
+  `h_nick` varchar(25) NOT NULL,
+  `h_tema` varchar(50) NOT NULL,
+  `h_razd` varchar(25) NOT NULL,
+  `h_text` varchar(1500) NOT NULL,
+  `h_k_an` int(3) NOT NULL,
+  `h_date` date NOT NULL,
+  `heal` int(5) NOT NULL DEFAULT '0',
+  `max_hale` int(5) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `zayavk`
+--
+
+INSERT INTO `zayavk` (`id`, `h_nick`, `h_tema`, `h_razd`, `h_text`, `h_k_an`, `h_date`, `heal`, `max_hale`) VALUES
+(1, 'Musiccloud team', 'what is musiccloud', 'get started', '\r\nWarframecloud is the social sound platform where anyone can listen to or upload sounds for Octavia and share them other players warframe.\r\n\r\nWhy is our site similar to soundcloud? It\'s simple. We believe that it will be easier for users to navigate in a familiar environment. We can not be considered it competitors, because we have different direction and purpose.\r\n', 0, '2017-05-09', 0, 0),
+(2, 'Warframecloud team', 'Your Display Name and Profile URL', 'account', '\r\nAt the moment, other users can search for you on WarframeCloud only on the tracks downloaded to the resource. If you have not added any music to your profile, it will be difficult to find your profile.\r\n\r\nYou can\'t change your display name and profile URL. On your profile page will be display your nickname, that you taken on registration.\r\n\r\n\r\n', 0, '2017-05-08', 0, 0),
+(3, 'Warframecloud team', 'Profile image and header', 'account', '\r\nProfile Image\r\n\r\nHelp Your Friends Recognize You. We Accept Any Images Up To 2mb In Size. For The Best Results, We Recommend Uploading A .Jpg Or .Png Of 1x1(Height = Width).\r\nYou Can Add Or Change Your Profile\'s Image Either Directly On Your Profile Page.\r\n<video id=\"sample_webm\" style=\"height:382px;width:100%;top:-25px !important;\" src=\"../../content/help_vid/change_avatar.webm\" preload=\"\" autoplay=\"\" loop=\"\"></video>\r\nClick On Your Profile Image. From There, Choose The File Saved On Your Computer And Click \'Save\'.\r\nThere Is Not A Way To Delete A Profile Image From Your Account. However, If You Are Unhappy With Your Profile Image, You Can Easily Change It To Something Else.\r\nProfile Avatars Are Circular In Order To Differentiate From Track And Playlist Artwork.\r\n\r\nProfile Header\r\n\r\nAt The Moment, Uploading The Profile Header Is Not Available. \r\n', 0, '2017-05-08', 0, 0),
+(4, 'Warframecloud team', 'Creating an Album', 'tracks', '\r\nAt the moment, this function is not avaible.\r\n\r\n', 0, '2017-05-08', 0, 1),
+(5, 'Warframecloud team', 'Uploading', 'tracks', '\r\nAnyone can upload their tracks to WarframeCloud. \r\nUploads are Web only\r\n<video id=\"sample_webm\" style=\"height:382px;width:100%;top:-25px !important;\" src=\"../../content/help_vid/upload_track.webm\" preload=\"\" autoplay=\"\" loop=\"\"></video>\r\nYou can only upload tracks via a computer. \r\nBy uploading, you confirm that your tracks don\'t infringe on anyone else\'s rights.\r\n', 0, '2017-05-08', 0, 0),
+(6, 'Warframecloud team', 'Messaging', 'account', '\r\nAt the moment, this function is not avaible.\r\n\r\n', 0, '2017-05-08', 2, 2),
+(7, 'Warframecloud team', 'Commenting', 'account', '\r\nAs a fan, give immediate feedback to your favorite creators. Creators, tell your followers how much you appreciate them. Comments drive creative connection for all users. \r\n\r\nLeaving a Comment\r\n<video style=\"height:382px;width:100%;\" src=\"../../content/help_vid/add_comm.webm\" preload=\"\" autoplay=\"\" loop=\"\"></video>\r\nYou can write a comment on a track through the text box below the waveform that says \'Write a comment...\' and press your return.\r\n\r\nReply to comment\r\n<video style=\"height:382px;width:100%;\" src=\"../../content/help_vid/add_reply.webm\" preload=\"\" autoplay=\"\" loop=\"\"></video>\r\nTo reply to a comment, hover the cursor over it, you\'ll see a replica button appear below. Clicking on it will appear the form of adding a comment. When you have finished typing the text, press the \"Enter\" key on the keyboard. You can visit a commenter\'s profile by clicking their Display Name.\r\n', 0, '2017-05-08', 1, 1),
+(8, 'Warframecloud team', 'Follower', 'account', '\r\nFollowing other people on WarframeCloud\r\n\r\nYou can follow anyone on WarframeCloud by clicking the \'Follow\' button on the right hand side underneath their Profile Header image.\r\n\r\nYou can see everyone that follows you on your profile page under \'Followers\'. \r\n\r\n<img src=\'../../content/help_pic/followers.png\'>\r\n\r\nHow to unfollow\r\n\r\nTo stop following someone, simply click the \'unFollow\' button that appears to be  \'Follow\' button again. The person will not be notified of your decision.\r\n', 0, '2017-05-08', 1, 1),
+(9, 'Warframecloud team', 'Likes', 'tracks', '\r\nLiking tracks or playlists\r\n\r\nLike any track let its creator know their work is appreciated. Click the Likes button below any tracks to add it to your Likes. \r\n\r\n<img src=\'../../content/help_pic/likes.png\'>\r\n', 0, '2017-05-08', 1, 1),
+(10, 'Warframecloud team', 'Unable to play tracks', 'tracks', '\r\nIf you are unable to play any tracks on WarframeCloud, please follow the steps below:\r\n<ul>\r\n<li>Try refreshing the page. In most cases, playback hiccups are only temporary. \r\n<li>Check our Blog for news and updates on any service interruptions that may be occurring.\r\n<li>Clear your browser\'s cache and cookies, and then restart it.\r\n<li>Check to make sure you have the latest version of your browser, and Flash installed.\r\n<li>Disable any extensions or ad-blocking plugins that could be blocking SoundCloud from working properly and add soundcloud.com to the exceptions list in the plug-in settings of your browser.\r\n<li>Try a different browser (such as Firefox, or Chrome) to see if it is a local issue on your browser.\r\n</ul>\r\n', 0, '2017-05-08', 2, 2),
+(11, 'Warframecloud team', 'Search on warframecloud', 'get started', '\r\nAt the top of our website and on the first page you will find our search bar that will help you find the tracks that interest you.\r\n\r\n<img src=\'../../content/help_pic/search.png\'>\r\n\r\nAfter the search is performed, on the search results page you can filter the tracks into two categories: Those who received the most likes and the last ones added to the site. At this time, there are no more categories for filtering.\r\n\r\nWarframeCloud results\r\n\r\n<img src=\'../../content/help_pic/searching.png\'>\r\n', 0, '2017-05-09', 1, 1),
+(12, 'Warframecloud team', 'Mandachord', 'tracks', '\r\nOne of the important features of Warframe is the mandachord system. Each user can now not only share their audio recordings with friends, but also the mandachord track.\r\n\r\n<video id=\"sample_webm\" style=\"height:382px;width:100%;top:-25px !important;\" src=\"../../content/help_vid/mandachord.webm\" preload=\"\" autoplay=\"\" loop=\"\"></video>\r\n\r\nTo share the Mendakord with others, it must first be created. The user who uploaded the track must go to the track page and click the \"Edit M.\" button.\r\n\r\n<video id=\"sample_webm\" style=\"height:382px;width:100%;top:-25px !important;\" src=\"../../content/help_vid/Add_and_edit_mandachord.webm\" preload=\"\" autoplay=\"\" loop=\"\"></video>', 0, '2017-05-08', 1, 1),
+(13, 'Warframecloud team', 'Bugs', 'bugs', '\r\nAt the moment, the resource is still being created. You should understand that the site can sometimes break down or give out errors. If you find a bug, vulnerability or bug please contact us at support@warframecloud.com\r\n', 0, '2017-05-30', 2, 3),
+(14, 'Warframecloud team', 'Copyright', 'security', '\r\ncoming soon ...\r\n\r\n\r\n', 0, '2017-05-30', 1, 2),
+(15, 'Warframecloud team', 'Account security', 'security', '\r\ncoming soon ...\r\n\r\n\r\n', 0, '2017-05-30', 1, 1),
+(16, 'Musiccloud team', 'Basic rules', 'rules', 'Do not do any of the following:\r\n<ul>\r\n<li>Flame or insult other members\r\n<li>Abuse or encourage abuse of the Post Reporting System\r\n<li>Derail a thread\'s topic\r\n<li>Post links to phishing sites\r\n<li>Post spam (i.e. +1, 10char, rickrolls) \r\n<li>Repetitively post in the incorrect themes \r\n<li>Openly argue with a moderator\r\n<li>Artificially manipulate the User like system or rupor system\r\n</ul>\r\n\r\nContent Rules\r\nDo not post any content on Steam containing the following:\r\n<ul>\r\n<li>Porn, offensive content\r\n<li>Discussion of piracy including\r\n<li>Threats of violence or harassment, even as a joke\r\n<li>Posted copyright material such as magazine scans\r\n<li>Soliciting, begging,  referrals\r\n<li>Racism, discrimination\r\n<li>Abusive language, including swearing\r\n<li>Drugs and alcohol\r\n<li>Religious, political, and other “prone to huge arguments” threads\r\n</ul>\r\nNo Backseat Moderating\r\nLet the moderators do the moderating. If you see a person breaking the rules, take advantage of the Report button or simply ignore the offensive post(s). \r\n\r\nReport Posts to Moderators\r\nShould you observe a fellow Community member breaking these rules please report it by clicking the Report button located on every profile pages.\r\n\r\nRepeated Offenders\r\nRepeated offenders of the above rules and guidelines will be banned from the Musiccloud Community. Any moderator has the ability to ban a user for violating the rules at their discretion.', 0, '2017-05-30', 1, 1),
+(17, 'Musiccloud team', 'Online conduct', 'rules', 'You agree to abide by the following conduct rules.\r\n\r\nYou will not:\r\n<ul>\r\n<li>Upload, or otherwise make available, files that contain images, photographs, or other material protected by intellectual property laws, including, by way of example, and not as limitation, copyright or trademark laws (or by rights of privacy or publicity) unless you own or control the rights thereto or have received all necessary consents to do the same.\r\n<li>Use any material or information, including images or photographs, via Musiccloud in any manner that infringes any copyright, trademark, patent, trade secret, or other proprietary right of any party.\r\n<li>Upload files that contain viruses, trojan horses, worms, or any other similar software or programs that may damage the operation of another\'s computer or property of another.\r\n<li>Institute attacks upon a Musiccloud server or otherwise disrupt Musiccloud.\r\n<li>Use Musiccloud in connection with surveys, contests, pyramid schemes, chain letters, junk email, spamming or any duplicative or unsolicited messages (commercial or otherwise).\r\n<li>Defame, abuse, harass, stalk, threaten or otherwise violate the legal rights (such as rights of privacy and publicity) of others.\r\n<li>Harvest or otherwise collect information about others, including e-mail addresses.\r\n<li>Create a false identity for the purpose of misleading others.\r\n<li>Violate any applicable laws or regulations.\r\n</ul>', 0, '2017-05-30', 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `za_usl`
+--
+
+CREATE TABLE `za_usl` (
+  `id` int(25) NOT NULL,
+  `z_nick` varchar(25) NOT NULL,
+  `z_id` int(5) NOT NULL,
+  `z_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `za_usl`
+--
+
+INSERT INTO `za_usl` (`id`, `z_nick`, `z_id`, `z_date`) VALUES
+(1, 'babalon', 4, '2013-05-13');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `z_mess`
+--
+
+CREATE TABLE `z_mess` (
+  `id` int(25) NOT NULL,
+  `r_author` varchar(25) NOT NULL,
+  `r_master` varchar(25) NOT NULL,
+  `r_text` varchar(500) NOT NULL,
+  `r_ip` varchar(25) NOT NULL,
+  `r_date` date NOT NULL,
+  `chit` enum('0','1') NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `z_mess`
+--
+
+INSERT INTO `z_mess` (`id`, `r_author`, `r_master`, `r_text`, `r_ip`, `r_date`, `chit`) VALUES
+(3, 'Reol', 'babalon', 'Не устаём удивляться настойчивости некоторый японских металлистов, и вокалистка IBUKI — в числе самых упорных. Она провела почти 10 лет, кочуя из группы в группу, была сессионщицей, и вот в июле прошлого года наконец-то решила попробовать себя в соло. Дебютный сингл Rise / We are No.1 вышел в ноябре.', '1.1.1.1', '2017-05-17', '0'),
+(9, 'tantyr', 'reol', '2018年6月1日（金）東京：EX THEATER ROPPONGI\r\n開場18:00 開演19:00 お問い合わせ:ディスクガレージ  TEL 050-5533-0888 ?', '', '2018-05-02', '1'),
+(10, 'babalon', 'Reol', '@sm8', '', '2019-10-27', '1'),
+(12, 'babalon', 'Reol', '@smC@smB', '', '2019-10-27', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `z_report`
+--
+
+CREATE TABLE `z_report` (
+  `id` int(25) NOT NULL,
+  `r_author` varchar(25) NOT NULL,
+  `r_master` varchar(25) NOT NULL,
+  `r_type` int(2) NOT NULL,
+  `r_text` varchar(500) NOT NULL,
+  `r_ip` varchar(25) NOT NULL,
+  `r_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `z_report`
+--
+
+INSERT INTO `z_report` (`id`, `r_author`, `r_master`, `r_type`, `r_text`, `r_ip`, `r_date`) VALUES
+(1, 'Egoist', 'babalon', 1, 'gargar', '::1', '2019-10-26');
+
+--
+-- Индексы сохранённых таблиц
+--
+
+--
+-- Индексы таблицы `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `o_album`
+--
+ALTER TABLE `o_album`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `o_board`
+--
+ALTER TABLE `o_board`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `o_comments`
+--
+ALTER TABLE `o_comments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `o_favorite`
+--
+ALTER TABLE `o_favorite`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `o_followers`
+--
+ALTER TABLE `o_followers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `o_like`
+--
+ALTER TABLE `o_like`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `o_playlist`
+--
+ALTER TABLE `o_playlist`
+  ADD PRIMARY KEY (`pl_id`);
+
+--
+-- Индексы таблицы `o_pltrack`
+--
+ALTER TABLE `o_pltrack`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `o_titul`
+--
+ALTER TABLE `o_titul`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `o_track`
+--
+ALTER TABLE `o_track`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `profile`
+--
+ALTER TABLE `profile`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `prof_opt`
+--
+ALTER TABLE `prof_opt`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `prof_opt2`
+--
+ALTER TABLE `prof_opt2`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `r_default`
+--
+ALTER TABLE `r_default`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `zayavk`
+--
+ALTER TABLE `zayavk`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `za_usl`
+--
+ALTER TABLE `za_usl`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `z_mess`
+--
+ALTER TABLE `z_mess`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `z_report`
+--
+ALTER TABLE `z_report`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT для сохранённых таблиц
+--
+
+--
+-- AUTO_INCREMENT для таблицы `news`
+--
+ALTER TABLE `news`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT для таблицы `o_album`
+--
+ALTER TABLE `o_album`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT для таблицы `o_board`
+--
+ALTER TABLE `o_board`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT для таблицы `o_comments`
+--
+ALTER TABLE `o_comments`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT для таблицы `o_favorite`
+--
+ALTER TABLE `o_favorite`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT для таблицы `o_followers`
+--
+ALTER TABLE `o_followers`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT для таблицы `o_like`
+--
+ALTER TABLE `o_like`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT для таблицы `o_playlist`
+--
+ALTER TABLE `o_playlist`
+  MODIFY `pl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT для таблицы `o_pltrack`
+--
+ALTER TABLE `o_pltrack`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT для таблицы `o_titul`
+--
+ALTER TABLE `o_titul`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT для таблицы `o_track`
+--
+ALTER TABLE `o_track`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT для таблицы `profile`
+--
+ALTER TABLE `profile`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT для таблицы `prof_opt`
+--
+ALTER TABLE `prof_opt`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT для таблицы `prof_opt2`
+--
+ALTER TABLE `prof_opt2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT для таблицы `r_default`
+--
+ALTER TABLE `r_default`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT для таблицы `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT для таблицы `zayavk`
+--
+ALTER TABLE `zayavk`
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT для таблицы `za_usl`
+--
+ALTER TABLE `za_usl`
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT для таблицы `z_mess`
+--
+ALTER TABLE `z_mess`
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT для таблицы `z_report`
+--
+ALTER TABLE `z_report`
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
