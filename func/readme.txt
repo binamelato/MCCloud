@@ -1,1 +1,1 @@
-This place for all main function.
+This place for all main functions.
