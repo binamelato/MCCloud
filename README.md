@@ -11,7 +11,7 @@ Hot use:
 3. You will also find settings for the Nginx server in the subfolder
 4. In msql create user - login=user, pass=Take the password from the gen0.php file in the func folder
 
-You must enable short_open_tag = On and report_errors = Off in php.ini
+You must enable short_open_tag = On and display_errors = Off in php.ini
 
 #### Screenshots
 
