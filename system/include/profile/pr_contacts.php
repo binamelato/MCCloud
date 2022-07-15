@@ -1,5 +1,8 @@
 <?
-$il_asa = mysqli_query($link, "SELECT contacts FROM profile WHERE login='{$dot1}'");
+$cc_asa = mysqli_query($link, "SELECT 1 FROM profile WHERE login='{$dot1}'");
+$ca_knb = mysqli_num_rows($cc_asa);
+if($kj_mum != 0){
+$il_asa = mysqli_query($link, "SELECT * FROM profile WHERE login='{$dot1}'");
 $ka_knb = mysqli_fetch_array($il_asa);
 $a_ma = $ka_knb['login'];
 $a_vk = $ka_knb['vk'];
@@ -40,5 +43,6 @@ echo"
 	</div>
 </div>
 ";
+}
 }
 ?>

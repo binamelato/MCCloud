@@ -1,5 +1,5 @@
 <?
-if(!$_SESSION['nLog']){
+if(@$_SESSION['nLog']){}else{
 echo"
 <div id='login_o' class='formatiko'>
 	<div class='lex_c'>
@@ -30,7 +30,7 @@ echo"
 </div>
 ";
 }
-if(!$_SESSION['nLog']){
+if(@$_SESSION['nLog']){}else{
 echo"
 <div id='reg_o' class='formatiko'>
 	<div class='lex_c'>
