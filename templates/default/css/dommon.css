@@ -113,6 +113,31 @@ border:#dedede solid 1px;
 #li_po{width:40px;height:40px;border:#fff solid 2px;border-radius:30px;}
 #imain{width:90px;height:90px;border-radius:90px;}
 
+.mf_t img{width:100%;height:100%;}
+.mf_t{
+cursor:pointer;
+width:40px;
+color:#ffffff;
+padding:5px;
+display:inline-block;
+margin:5px;
+border-radius:3px;
+cursor:pointer;
+box-sizing:border-box;
+text-align:center;
+height:40px;
+}
+.c_mod{color:#444;font-size:14px;position:relative;}
+.mf_t:hover{z-index:1;transform:scale(1.2);}
+._r{background-color:rgb(202 28 28);}/*red*/
+._b{background-color:rgb(44 115 229);}/*blue*/
+._s{background-color:rgb(207 129 21);}/*orange*/
+._l{background-color:rgb(55 202 28);}/*green*/
+._k{background-color:rgb(121 85 72);}/*koffe*/
+._q{background-color:rgb(68 68 68);}/*serii*/
+._w{background-color:rgb(219 184 11);}/*yellow*/
+._x{background-color:rgb(158 11 219);}/*purple*/
+._flx{flex-direction:row;justify-content:space-between;align-items:center;flex-wrap:nowrap;align-content:center;display:flex;}
 
 .top_rd{
 width:360px;
@@ -143,6 +168,7 @@ color:#fff;
 font-size:14px;
 line-height:20px;
 }
+/*
 .mf_t{
 width:150px;
 color:#ffffff;
@@ -155,7 +181,7 @@ background-color:#F497D9;
 cursor:pointer;
 box-sizing:border-box;
 text-align:center;
-}
+}*/
 .mf_t2{
 width:150px;
 color:#ffffff;

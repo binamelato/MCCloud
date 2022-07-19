@@ -14,17 +14,16 @@ require_once ('system/include/header.php');
 			<div class=''>Music cloud</div>
 		</div>
 		<div class='_mji_ rih'>
-			<div id="" class=''>
+			<div class='_flx'>
 <?
 if (isset($_SESSION['user_id'])) {
-				 echo"
-				 <div class='_mji_'><a href='/".$_SESSION['nLog']."'><span class='keyki'>".$_SESSION['nLog']."</span></a></div>
-				 ";
+				 echo'
+				<div class="c_mod"><a href="/'.$_SESSION['nLog'].'"><span class="mf_t _q"><img src="/content/sys/prof.png"></span></a></div>
+				 ';
 				}else{
 				 echo'
-			<div class="_mji_"><span id="logi" class="ml_t2">Sing In</span></div>
-			<div class="_mji_"><span class="mr_t">Or</span></div>
-			<div class="_mji_"><span id="sigup" class="mf_t">Create Account</span></div>
+				<div class="c_mod"><a id="logi"><span class="mf_t _q"><img src="/content/sys/prof.png"></span></a></div>
+				<div class="c_mod"><a id="sigup"><span class="mf_t _l"><img src="/content/sys/reg.png"></span></a></div>
 				 ';
 				}
 ?>
@@ -50,7 +49,7 @@ if (isset($_SESSION['user_id'])) {
 			</div>
 		</div>
 	</div>
-	<div class='top_rd'><p>Recently added tracks</p></div>
+	<div class='top_rd'><p>Новые треки</p></div><!--Recently added tracks -->
 	<div>
 <?
 	echo "<div class='top_rf'>";

@@ -7,11 +7,11 @@ require_once('../system/getid3/getid3.php');
 if (isset($_POST['d'])) 
 {
 $da_is = $_POST['d'];
-$da_ks = $_POST['v'];
-$da_ls = $_POST['m'];
-$da_ms = $_POST['n'];
-$da_ss = $_POST['i'];
-$da_ww = $_POST['w'];
+if(@$_POST['v']){$da_ks = $_POST['v'];}
+if(@$_POST['m']){$da_ls = $_POST['m'];}
+if(@$_POST['n']){$da_ms = $_POST['n'];}
+if(@$_POST['i']){$da_ss = $_POST['i'];}
+if(@$_POST['w']){$da_ww = $_POST['w'];}
 
 if($da_is == 'do_tag'){//Для панельки js при наведении на фото
 /*
