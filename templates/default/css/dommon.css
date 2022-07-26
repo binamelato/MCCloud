@@ -29,13 +29,14 @@ input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration{display:none;}
 table td{color:#848484;text-align:center;}
 ul.muz{-webkit-padding-start:0px;-padding-start:0px;}
+header, section, footer, aside, nav, article {display: block; /* Блочный элемент */}
 /*
 @media screen and (min-width:768px){#gkHeader,#header,.top_rf,#form_serch,#se_pol{width:760px !important;}}
 @media (min-width:992px){#gkHeader,#header{width:970px;}}
 @media (min-width:1200px){#gkHeader,#header{width:1240px;}}
 */
 
-/* Index */
+/* ======================= Index ============================== */
 
 #gkHeader{
 padding:0;
@@ -137,7 +138,7 @@ height:40px;
 ._q{background-color:rgb(68 68 68);}/*serii*/
 ._w{background-color:rgb(219 184 11);}/*yellow*/
 ._x{background-color:rgb(158 11 219);}/*purple*/
-._flx{flex-direction:row;justify-content:space-between;align-items:center;flex-wrap:nowrap;align-content:center;display:flex;}
+._flx{display:flex;}
 
 .top_rd{
 width:360px;
@@ -625,7 +626,7 @@ margin:auto;
 height:400px;
 padding:25px;
 margin-top:50px;
-box-shadow:0 0 1px #9c9c9c;
+box-shadow:0 0 6px 1px #9b9b9b;
 }
 .authp_f{
 font-size:18pt;

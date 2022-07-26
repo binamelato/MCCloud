@@ -7,14 +7,9 @@ echo"
 	</div>
 	<div class='mess4' >
 	<div class='authp_f'><p class='authp_p'>Sign In</p></div>
-	<div class='rreForm'>
-		<a><img style='width:25px;height:25px;' src='/content/sys/4/instagram.png'></a>
-		<a><img style='width:25px;height:25px;' src='/content/sys/4/facebook.png'></a>
-		<a><img style='width:25px;height:25px;' src='/content/sys/4/google_plus.png'></a>
-		<a><img style='width:25px;height:25px;' src='/content/sys/4/twitter.png'></a>
-	</div>
+	<div class='rreForm'></div>
 	<form  method='post' action='/pass'>
-	<div class=''>
+	<div>
 	<input class='pole2' name='nLog' placeholder='Your profile name' data-error='Login' required='required' maxlength='15'>
 	<br>
 	<input class='pole2' name='nPas' placeholder='Your profile password *' data='Password' type='Password' required='required' maxlength='15'>

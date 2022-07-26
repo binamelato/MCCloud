@@ -25,4 +25,18 @@ $EN = $US = array(
 $JP = array(
 	"title" => 'Anibatsu',	"menu1" => 'ログイン',
 );
+
+if(isset($_POST['saf_fon'])){
+	$par1 = $_POST['par1'];
+	$par2 = $_SESSION['nLog'];
+	if($par1 !='' and $par2 !=''){
+	$i_vina = mysqli_query($link, "SELECT 1 FROM prof_opt WHERE f_idprofile='{$_SESSION['nLog']}'");
+	$nncc = mysqli_num_rows($i_vina);
+		if ($nncc == 0){
+	mysqli_query($link, "INSERT INTO `prof_opt`(`f_idprofile`, `f_up`) VALUES ('{$par2}','{$par1}')");
+		}else{
+	mysqli_query($link, "UPDATE `prof_opt` SET `f_up`='{$par1}' WHERE `f_idprofile`='{$_SESSION['nLog']}'");	
+	}
+	}
+}
 ?>
