@@ -18,7 +18,8 @@ require_once ('system/include/header.php');
 <div class='telo'>
 <div class='t_l2'>
 <?
-require_once ('system/include/forms/shap.php');
+//require_once ('system/include/forms/shap.php');
+require_once ('system/include/forms/nav.php');
 if (isset($_POST['poisk_bt'])) 
 {
 $tpois = $_POST['poisk_fn'];

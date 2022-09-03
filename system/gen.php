@@ -306,11 +306,11 @@ echo"
             <span class='the-name'> - ".$p_nm."</span>
             <span class='tr_exp'>
 				<div class='_mji_'>
-					<div class='_mji_ n-ply'><img src='/content/sys/plap2.png'></div>
+					<div class='_mji_ n-ply'><img src='/content/sys/play.png'></div>
 					<div class='_mji_ n-cif'>".$slal."</div>
 				</div>
 				<div class='_mji_'>
-					<div class='_mji_ n-ply'><img src='/content/sys/like2.png'></div>
+					<div class='_mji_ n-ply'><img src='/content/sys/heart.png'></div>
 					<div class='_mji_ n-cif'>".$lil."</div>
 				</div>
 			</span>
@@ -345,11 +345,11 @@ if($p_pla >= 1000000){$slal =round($p_pla/1000000, 2).'M';}else{if($p_pla >= 100
             <span class='the-name'> - ".$p_nm."</span>
             <span class='tr_exp'>
 				<div class='_mji_'>
-					<div class='_mji_ n-ply'><img src='/content/sys/plap2.png'></div>
+					<div class='_mji_ n-ply'><img src='/content/sys/play.png'></div>
 					<div class='_mji_ n-cif'>".$slal."</div>
 				</div>
 				<div class='_mji_'>
-					<div class='_mji_ n-ply'><img src='/content/sys/like2.png'></div>
+					<div class='_mji_ n-ply'><img src='/content/sys/heart.png'></div>
 					<div class='_mji_ n-cif'>".$lil."</div>
 				</div>
 			</span>
@@ -466,11 +466,11 @@ if($p_pla >= 1000000){$slal =round($p_pla/1000000, 2).'M';}else{if($p_pla >= 100
             <span class='the-name'> - ".$p_nm."</span>
             <span class='tr_exp'>
 				<div class='_mji_'>
-					<div class='_mji_ n-ply'><img src='/content/sys/plap2.png'></div>
+					<div class='_mji_ n-ply'><img src='/content/sys/play.png'></div>
 					<div class='_mji_ n-cif'>".$slal."</div>
 				</div>
 				<div class='_mji_'>
-					<div class='_mji_ n-ply'><img src='/content/sys/like2.png'></div>
+					<div class='_mji_ n-ply'><img src='/content/sys/heart.png'></div>
 					<div class='_mji_ n-cif'>".$lil."</div>
 				</div>
 			</span>
@@ -503,11 +503,11 @@ if($p_pla >= 1000000){$slal =round($p_pla/1000000, 2).'M';}else{if($p_pla >= 100
             <span class='the-name'> - ".$p_nm."</span>
             <span class='tr_exp'>
 				<div class='_mji_'>
-					<div class='_mji_ n-ply'><img src='/content/sys/plap2.png'></div>
+					<div class='_mji_ n-ply'><img src='/content/sys/play.png'></div>
 					<div class='_mji_ n-cif'>".$slal."</div>
 				</div>
 				<div class='_mji_'>
-					<div class='_mji_ n-ply'><img src='/content/sys/like2.png'></div>
+					<div class='_mji_ n-ply'><img src='/content/sys/heart.png'></div>
 					<div class='_mji_ n-cif'>".$lil."</div>
 				</div>
 			</span>
@@ -567,11 +567,11 @@ echo"
             <span class='the-name'> - ".$p_nm."</span>
             <span class='tr_exp'>
 				<div class='_mji_'>
-					<div class='_mji_ n-ply'><img src='/content/sys/plap2.png'></div>
+					<div class='_mji_ n-ply'><img src='/content/sys/play.png'></div>
 					<div class='_mji_ n-cif'>".$slal."</div>
 				</div>
 				<div class='_mji_'>
-					<div class='_mji_ n-ply'><img src='/content/sys/like2.png'></div>
+					<div class='_mji_ n-ply'><img src='/content/sys/heart.png'></div>
 					<div class='_mji_ n-cif'>".$lil."</div>
 				</div>
 				<div class='_mji_'>
@@ -619,11 +619,11 @@ if($p_pla >= 1000000){$slal =round($p_pla/1000000, 2).'M';}else{if($p_pla >= 100
             <span class='the-name'> - ".$p_nm."</span>
             <span class='tr_exp'>
 				<div class='_mji_'>
-					<div class='_mji_ n-ply'><img src='/content/sys/plap2.png'></div>
+					<div class='_mji_ n-ply'><img src='/content/sys/play.png'></div>
 					<div class='_mji_ n-cif'>".$slal."</div>
 				</div>
 				<div class='_mji_'>
-					<div class='_mji_ n-ply'><img src='/content/sys/like2.png'></div>
+					<div class='_mji_ n-ply'><img src='/content/sys/heart.png'></div>
 					<div class='_mji_ n-cif'>".$lil."</div>
 				</div>
 				<div class='_mji_'>

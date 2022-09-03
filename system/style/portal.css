@@ -1,0 +1,101 @@
+@font-face {
+	font-family: 'Futura PT';
+	src: local('Futura PT Light'), local('Futura-PT-Light'),
+	url('../style/fonts/FuturaPT-Light.woff2') format('woff2'),
+	url('../style/fonts/FuturaPT-Light.woff') format('woff'),
+	url('../style/fonts/FuturaPT-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+::-webkit-scrollbar{
+	width:10px;
+	height:9px;
+}
+::-webkit-scrollbar-track{
+	-webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+	background-color:#e5e5e5;border-radius:6px;
+}
+::-webkit-scrollbar-thumb{
+	border-radius:6px;
+	background:linear-gradient(180deg, #504f4f, #2b2a2a);
+}
+body{
+	margin:0;
+	padding:0;
+	direction:ltr;
+	font-family:'Futura PT';
+	text-transform:uppercase;
+	border:none;
+	font-size:14px;
+	color:#fff;
+	background-color:#ececec;
+}
+a{
+	color:rgb(130, 130, 130);
+	text-decoration:none;
+	cursor:pointer;
+	text-shadow:0 0 1px #fff;
+}
+ul{
+	padding-inline-start:0px;
+	list-style-type:none;
+	margin-block-start:0em;
+	margin-block-end:0em;
+}
+div, a, form, textarea, input, button, img, p, table{
+	outline:none;
+}
+textarea{
+	resize:none;
+}
+td{
+	cursor:pointer;
+}
+form{
+	margin-bottom:0;
+}
+table td{
+	color:#848484;
+	text-align:center;
+}
+img{
+	width:100%;
+	height:100%;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration{
+	display:none;
+}
+.block{
+	padding:0;
+	max-width:1240px;
+	width:100%;
+	margin:0 auto;	
+}
+.flx{
+	display:flex;	
+}
+.btw{
+	justify-content:space-between;
+}
+.flw{
+	flex-wrap:wrap;
+}
+.grd{
+	display:grid;
+}
+.block_location{
+	margin:auto;
+}
+.-color0{background-color:rgb(0 0 0);}/*black*/
+.-color1{background-color:rgb(55 202 28);}/*green*/
+.-color2{background-color:rgb(202 28 28);}/*red*/
+.-color3{background-color:rgb(44 115 229);}/*blue*/
+.-color4{background-color:rgb(207 129 21);}/*orange*/
+.-color5{background-color:rgb(121 85 72);}/*koffe*/
+.-color6{background-color:rgb(68 68 68);}/*serii*/
+.-color7{background-color:rgb(219 184 11);}/*yellow*/
+.-color8{background-color:rgb(158 11 219);}/*purple*/
+.-color9{background-color:rgb(251 251 251);}/*white*/
