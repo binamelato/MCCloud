@@ -19,6 +19,32 @@ $query5b = mysqli_query($link, "SELECT id FROM profile WHERE f_master='{$da_ks}'
 $_morah = mysqli_num_rows($query5b);
 echo $_morah;*/
 }
+if ($da_is == 'login'){
+	echo"
+	<div id='login_o' class='formatiko'>
+		<div class='lex_c'>
+			<a href='".$_SERVER['REQUEST_URI']."'><span class='clo_clo'></span></a>
+		</div>
+		<div class='mess4' >
+		<div class='authp_f'><p class='authp_p'>Sign In</p></div>
+		<div class='rreForm'></div>
+		<form  method='post' action='/pass'>
+		<div>
+		<input class='pole2' name='nLog' placeholder='Your profile name' data-error='Login' required='required' maxlength='15'>
+		<br>
+		<input class='pole2' name='nPas' placeholder='Your profile password *' data='Password' type='Password' required='required' maxlength='15'>
+		<div class='button_blue4' >
+				<button name='submit' id='inin_o' type='submit'>Continue</button>
+			</div>
+		</div>
+		</form>
+		<div style='width:100%;'>
+			<a href='/support' id='som_help' style=''>Need help?</a>
+		</div>
+		</div>
+	</div>
+	";
+}
 if ($da_is == 'newuser'){
 if($da_ks != '' or $da_ks != 0){
 $ddild = iconv_strlen($da_ks);

@@ -7,8 +7,9 @@ echo"
 	</div>
 	<div class='mess4' >
 	<div class='authp_f'><p class='authp_p'>Sign In</p></div>
+	<div class='rreForm'></div>
 	<form  method='post' action='/pass'>
-	<div class=''>
+	<div>
 	<input class='pole2' name='nLog' placeholder='Your profile name' data-error='Login' required='required' maxlength='15'>
 	<br>
 	<input class='pole2' name='nPas' placeholder='Your profile password *' data='Password' type='Password' required='required' maxlength='15'>

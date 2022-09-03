@@ -1,75 +1,144 @@
-<?php
+<?
 session_start(); 
-require_once ('system/functions/gen0.php');
-require_once ('system/functions/date.php');
+require_once ('func/gen0.php');
+require_once ('func/date.php');
+require_once ('system/include/header.php');
 ?>
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link type="image/x-icon" rel="icon" href="content/ui/musical-note.png" />
-    <link rel="stylesheet" type="text/css" media="all"  href="system/style/portal.css" />
-    <link rel="stylesheet" type="text/css" media="all"  href="system/style/main_page.css" />
-</head>
 <body>
-    <header class="block -color9 header_image">
-        <nav>
-            <ul class="flx btw">
-                <li class="block_name">Music cloud</li>
-                <li class="block_login_form">
-                    <div class="flx">
-						<?php require_once ("modules/pages/main_page/form_signIn_Up.php"); ?>                        
-                    </div>
-                </li>
-            </ul>
-        </nav>
-        <h1>Присоединяйся</h1>
-        <h4>Откройте для себя все разнообразие музыкальных композиций</h4>
-    </header>
-    <main>        
-        <section class="block -color9" aria-label="">
-            <div class="form_search block_location">
-                <form method='Post' action="/search/all" class="container_search flx">
-                    <input type="search" class="field_search" required='required' placeholder="Поиск по авторам, трекам, проектам" autocomplete="off">
-                    <input type="submit" class="button_search" value="">
-                </form>
-            </div>            
-        </section>
-        <section class="block -color9" aria-label="">
-            <div class="block_title block_location">Новые треки</div>
-            <div class="block_body block_location flx flw">
-				<?php require_once ("modules/pages/main_page/select_last_tracks.php"); ?>				
+<header>
+	<section id='in_fol'>
+			<? //require_once ('system/include/forms/signup_in.php'); ?>
+	</section>
+</header>
+<main>
+	<article>
+		<section>
+			<div id="gkHeader" class="mess" style='background: url(/content/ie_prev/<?echo $rlogo; ?>) center;background-size:cover;'>
+			<div class="mess">
+				<div class='h_upbl'>
+					<div class='_mji_ lef'>
+						<div class=''>Music cloud</div>
+					</div>
+					<div class='_mji_ rih'>
+						<div class='_flx'>
+			<?
+			if (isset($_SESSION['user_id'])) {
+							 echo'
+							<div class="c_mod"><a href="/'.$_SESSION['nLog'].'"><span class="mf_t _q"><img src="/content/sys/prof.png"></span></a></div>
+							 ';
+							}else{
+							 echo'
+							<div class="c_mod"><a id="logi"><span class="mf_t _q"><img src="/content/sys/prof.png"></span></a></div>
+							<div class="c_mod"><a id="sigup"><span class="mf_t _l"><img src="/content/sys/reg.png"></span></a></div>
+							 ';
+							}
+			?>
+						</div>
+					</div>
+				</div>
+				<div>
+					<div class='deys'>
+						<span>Connect ON</span>
+						<p>Discover the variety of musical compositions.</p>
+					</div>
+				</div>
 			</div>
-        </section>
-        <section class="block -color9" aria-label="">
-            <?php require_once ("modules/pages/main_page/new_tracks_button_more.php"); ?>	          
-        </section>
-        <section class="block -color9" aria-label="">
-            <div class="block_title block_location">Популярные треки</div>
-            <div class="block_body block_location flx flw">
-				<?php require_once ("modules/pages/main_page/select_popular_tracks.php"); ?>
 			</div>
-        </section>
-        <section class="block -color9" aria-label="">
-            <?php require_once ("modules/pages/main_page/popular_tracks_button_more.php"); ?>            
-        </section>
-        <section aria-label="">
-            <div class="in_fol">
-				<?php /*require_once("modules/forms/signup_in.php"); */ ?>
+		</section>
+		<section>
+			<div id='header' class='_t'>
+				<div id='form_serch'>
+					<div>
+						<div class='s_st1'>
+						<form id='serch_fr' method='Post' action='/search/all'>
+							<input id='se_pol' required='required' name='poisk_fn' type='search' placeholder="Search for authors, tracks, podcasts" value='' autocomplete="off">
+							<input id='se_but' name='poisk_bt' type='submit' value>
+						</form>
+						</div>
+					</div>
+				</div>
+				<div class='top_rd'><p>Новые треки</p></div><!--Recently added tracks -->
+				<div>
+			<?
+				echo "<div class='top_rf'>";
+				$query = mysqli_query($link, "SELECT * FROM `o_track` where type_dost='1' ORDER BY id desc limit 12");
+				while ($row = mysqli_fetch_array($query)){
+				$id = $row['id'];
+				$name =$row['o_name'];
+				$logo = $row['o_lab'];
+				$author = $row['o_author'];
+				$url = $row['o_url'];
+				$date = $row['o_date'];
+				$vnim = strlen($name);
+				if($vnim>67){
+					$x_name = substr($name, 0, 23)." ...";
+				}else{
+					$x_name = substr($name, 0, 23);
+				}
+				echo "
+				<div class='krug_g3'>
+					<div>
+						<div class='krug_1'><img src='".$fzm_host."/content/octava/tracks/label/".$logo."' class='krug_im'></div>
+						<div>
+							<a class='dec_b' href='".$author."/".$url."'>".$x_name."</a>
+							<div class='dec_fg'><a href='/".$author."'>".$author."</a></div>
+						</div>
+					</div>
+				</div>
+				";
+			}
+			echo"</div>";
+			?>
+				</div>
+				<div id='bit_podtul'>
+					<a class='forten' href='/search/all'>More Tracks</a>
+				</div>
 			</div>
-        </section>
-    </main>
-    <footer class="block">
-        <a href='/'>© MusicCloud</a> |
-		<a href='/about'>About</a> |
-		<a href='/blog'>blog</a> |
-		<a href='/support'>help</a> |
-		<a href >Donate</a> |
-		<a href='/support/14'>Copyright</a>
-    </footer>
-	<script src="/system/js/v-portal.js"></script>
-</body>
-</html>
+		</section>
+		<section>
+			<?
+			$luei = mysqli_query($link, "SELECT 1 FROM `o_track` WHERE full_likes>='12'");
+				$loi = mysqli_fetch_array($luei);
+				if ($loi) {
+				echo "
+				<div id='header' class='_o'>
+				<div class='top_md'><div>Most popular tracks</div></div>
+				<div>
+				<div class='top_rf'>";
+				$query = mysqli_query($link, "SELECT * FROM `o_track` WHERE full_likes>='12' and type_dost='1' ORDER BY id desc limit 12");
+				while ($row = mysqli_fetch_array($query)){
+				$namez =$row['o_name'];
+				$logoz = $row['o_lab'];
+				$urlz = $row['o_url'];
+				if($vnim>67){
+					$x_namez = substr($namez, 0, 23)." ...";
+				}else{
+					$x_namez = substr($namez, 0, 23);
+				}
+				echo "
+				<div class='krug_g3'>
+					<div class='krug_1'>
+						<img src='".$fzm_host."/content/octava/tracks/label/".$logoz."' class='krug_im'>
+						<div class='kijo'>
+							<a class='dec_w' href='".$author."/".$urlz."'>".$x_namez."</a>
+						</div>
+					</div>
+				</div>
+				";
+			}
+			echo"</div>
+				<div id='bit_podtul'>
+					
+					</div>
+					</div>
+				</div>";
+					}
+			?>
+		</section>
+	</article>
+</main>
+<footer>
+<?
+require_once ('system/include/footer.php');
+?>
+</footer>
